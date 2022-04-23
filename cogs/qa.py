@@ -3,35 +3,21 @@ from discord.ext import commands
 import random
 
 
-
 intents = discord.Intents(messages = True, guilds = True, reactions = True, members = True, presences = True)
-client = commands.Bot(command_prefix = '.', intents =discord.Intents.all())
 
 
-@client.event
-async def on_ready():
-    print('bot is ready')
+class Qa(commands.Cog):
+    def __init__(self,client):
+        self.client = client
+
+    @commands.Cog.listener()
+    async def on_ready(self):
+        print('8ball is ready')
 
 
-@client.event
-async def on_member_join(member):
-    print(f'{member} has joined a server!')
-
-
-@client.event
-async def on_member_removed(member):
-            print(f'{member} has lefted the server!')
-
-
-@client.command()
-async def ping(ctx):
-    await ctx.send(f'Pong! {round(client.latency * 1000)}ms')
-
-
-
-@client.command(aliases=['8ball','teste'])
-async def _8ball(ctx,*,question):
-    responses = ["It is certain.",
+    @commands.command(aliases=['8ball'])
+    async def _8ball(self,ctx,*,question):
+        responses = ["It is certain.",
                         "It is decidedly so.",
                         "Without a doubt.",
                         "Yes - definitely.",
@@ -53,19 +39,13 @@ async def _8ball(ctx,*,question):
                         "Very doubtful."
                     ]
 
-    await ctx.send(f'Question:{question}\nAnswer:{random.choice(responses)}')
+        await ctx.send(f'Question:{question}\nAnswer:{random.choice(responses)}')
 
+    @_8ball.error
+    async def error(self, ctx,error):
+        if isinstance(error,commands.MissingRequiredArgument):
+            await ctx.send("Digite uma pergunta após o comando")
 
-
-@commands.has_permissions(manage_messages = True)
-@client.command()
-async def clear(ctx, amount:int):
-    await ctx.channel.purge (limit = amount + 1)
-
-
-@client.command()
-async def kick(ctx, member: discord.Member):
-
-
-
-client.run('OTIwMDMzNzcxODQyMDU2MTkz.YbeeOA.cSgl1LnlB9ofLm3sILiBStCK2Uc')
+def setup(client):
+    client.add_cog(Qa(client))
+    
