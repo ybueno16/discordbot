@@ -3,7 +3,7 @@ from discord.ext import commands
 
 intents = discord.Intents(messages = True, guilds = True, reactions = True, members = True, presences = True)
 
-
+#Comando para apagar mensagens de um canal do discord
 
 class Message_purge(commands.Cog):
     def __init__(self,client):
