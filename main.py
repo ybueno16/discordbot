@@ -62,5 +62,6 @@ for filename in os.listdir('./cogs'):
 
 
 
-client.run("OTIwMDMzNzcxODQyMDU2MTkz.Gd2KVS.R4YesYryxhOCR7pwaqF6TbjHd07uBzKMdKz4Z4")
+
+client.run("")
 
