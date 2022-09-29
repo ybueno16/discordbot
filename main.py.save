@@ -29,20 +29,21 @@ async def change_status():
 
 # Tratamento de erros caso seja digitado algum comando inexistente
 @client.event
+
+
 async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
         await ctx.send("Comando inválido")
 
 # Comando para bot responder mensagem com palavrao
 
-"""@client.event
+@client.event
 async def on_message(message):
     if message.author == client.user:
         return
 
     if any(i in message.content for i in bad_words):
-        await message.channel.send('nao pode palavrao')"""
-    
+        await message.channel.send('nao pode palavrao')
 
 
 # Comandos para inicialização do cog
@@ -62,4 +63,4 @@ for filename in os.listdir('./cogs'):
         client.load_extension(f'cogs.{filename[:-3]}')
 
 
-client.run("")
+client.run("OTIwMDMzNzcxODQyMDU2MTkz.GkUqEp.rZZvLePS1IXViNKeavGp3TRllSQ1TcrngcWHhg")
