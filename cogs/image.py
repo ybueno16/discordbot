@@ -2,10 +2,8 @@ from cmath import pi
 import discord,os,sys
 from discord.ext import commands
 from icrawler.builtin import GoogleImageCrawler
-
-
-
 caminho = "./img/"
+
 
 
 
@@ -34,7 +32,7 @@ class Image(commands.Cog):
         except OSError as e:
             print(f"Error:{e.strerror}")
 
-    
+
 
 
 def setup(client):

@@ -35,22 +35,21 @@ async def on_command_error(ctx, error):
 
 # Comando para bot responder mensagem com palavrao
 
-"""@client.event
+@client.event
 async def on_message(message):
     if message.author == client.user:
         return
 
-    if any(i in message.content for i in bad_words):
-        await message.channel.send('nao pode palavrao')"""
+    elif any(i in message.content for i in bad_words):
+        await message.channel.send('nao pode palavrao')
+
+    elif not any(i in message.content for i in bad_words):
+        return client
+        
     
 
 
 # Comandos para inicialização do cog
-
-@client.command()
-async def load(ctx, extension):
-    client.load_extension(f'maincog.{extension}')
-
 
 @client.command()
 async def unload(ctx, extension):
@@ -63,5 +62,5 @@ for filename in os.listdir('./cogs'):
 
 
 
-client.run("OTIwMDMzNzcxODQyMDU2MTkz.GypE16.cUIfuUEOKT3lS0YTwRkHwtEahb6q668L2EIIhQ")
+client.run("OTIwMDMzNzcxODQyMDU2MTkz.Gd2KVS.R4YesYryxhOCR7pwaqF6TbjHd07uBzKMdKz4Z4")
 
