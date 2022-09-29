@@ -5,7 +5,9 @@ from icrawler.builtin import GoogleImageCrawler
 
 
 
-caminho = os.getcwd()
+caminho = "./img/"
+
+
 
 
 class Image(commands.Cog):
@@ -22,14 +24,12 @@ class Image(commands.Cog):
     async def image(self,ctx,question):
 
         
-        google_Crawler = GoogleImageCrawler(storage = {'root_dir': r'/home/yuri/Documentos/Dev/discordbot/img'})
+        google_Crawler = GoogleImageCrawler(storage = {'root_dir': caminho})
         google_Crawler.crawl(keyword = question, max_num = 1)
-        await ctx.send(file=discord.File("/home/yuri/Documentos/Dev/discordbot/img/000001.jpg"))
+        await ctx.send(file = discord.File(caminho + "000001.jpg"))
         
         try:
-            for filename in os.listdir('./image'):
-                for f in "./image":
-                    os.remove(f)
+            os.remove(caminho + "000001.jpg")
             print("depois remoção")
         except OSError as e:
             print(f"Error:{e.strerror}")
