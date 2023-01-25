@@ -9,7 +9,7 @@ intents = discord.Intents(messages=True, guilds=True,
                           reactions=True, members=True, presences=True)
 
 client = commands.Bot(command_prefix='.', intents=discord.Intents.all())
-bad_words = ['caralho', 'merda']
+
 
 
 
@@ -61,5 +61,5 @@ for filename in os.listdir('./cogs'):
 
 
 
-client.run("OTIwMDMzNzcxODQyMDU2MTkz.GzEQjw.mU8JivS4ejDHwX7tQyhbKr6YFCDjZPj9KNMJUw")
+client.run("")
 
