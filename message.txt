@@ -1,0 +1,10 @@
+2023-01-25 16:10:20,603 geral: YuDuGremis#7034 YuDuGremis: teste
+2023-01-25 16:10:26,958 geral: YuDuGremis#7034 YuDuGremis: .ping
+2023-01-25 16:12:22,183 geral: YuDuGremis#7034 YuDuGremis: .ping
+2023-01-25 16:16:13,340 geral: YuDuGremis#7034 YuDuGremis: .ping
+2023-01-25 16:16:13,540 geral: Bot-Teste#5835 Bot-Teste: Pong!
+2023-01-25 16:16:36,208 geral: YuDuGremis#7034 YuDuGremis: .image olhos
+2023-01-25 16:16:39,967 geral: Bot-Teste#5835 Bot-Teste: 
+2023-01-25 16:18:31,092 geral: YuDuGremis#7034 YuDuGremis: teste
+2023-01-25 16:18:51,880 geral: YuDuGremis#7034 YuDuGremis: .ping
+2023-01-25 16:18:52,173 geral: Bot-Teste#5835 Bot-Teste: Pong!

@@ -1,20 +1,19 @@
 import discord
 from discord.ext import commands, tasks
 from itertools import cycle
-import os
-
+import os, os.path
+import logging
 
 status = cycle(['Programando um bot para outro bot', 'Muitos jogos', ';-;'])
 intents = discord.Intents(messages=True, guilds=True,
                           reactions=True, members=True, presences=True)
-client = commands.Bot(command_prefix='.', intents=discord.Intents.all())
 
+client = commands.Bot(command_prefix='.', intents=discord.Intents.all())
 bad_words = ['caralho', 'merda']
 
-@client.event
-async def on_ready():
-    print('bot is ready')
-    change_status.start()
+
+
+
 
     # Comando para deixar fixo uma status no discord
 
@@ -33,20 +32,19 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
         await ctx.send("Comando inválido")
 
+
 # Comando para bot responder mensagem com palavrao
+
+
 
 @client.event
 async def on_message(message):
-    if message.author == client.user:
-        return
-
-    elif any(i in message.content for i in bad_words):
-        await message.channel.send('nao pode palavrao')
-
-    elif not any(i in message.content for i in bad_words):
-        return client
-        
+    logging.basicConfig(filename = "message.txt", format = "%(asctime)s %(message)s")
+    logging.warning(f"{message.channel}: {message.author} {message.author.name}: {message.content}") 
     
+    await client.process_commands(message)
+    
+
 
 
 # Comandos para inicialização do cog
@@ -63,5 +61,5 @@ for filename in os.listdir('./cogs'):
 
 
 
-client.run("")
+client.run("OTIwMDMzNzcxODQyMDU2MTkz.GzEQjw.mU8JivS4ejDHwX7tQyhbKr6YFCDjZPj9KNMJUw")
 

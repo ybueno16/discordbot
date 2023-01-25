@@ -28,6 +28,7 @@ class Message_purge(commands.Cog):
 
 
 
+
     @clear.error
     async def clear_error(self,ctx,error):
         if isinstance(error,commands.MissingRequiredArgument):
